@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Compatibility Matcher™</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: linear-gradient(to right, #141e30, #243b55);
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+.container {
+    background: rgba(255,255,255,0.08);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 500px;
+    margin: auto;
+    backdrop-filter: blur(10px);
+}
+button {
+    padding: 12px 20px;
+    border: none;
+    background: #00c6ff;
+    color: black;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+input, select {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+}
+img {
+    margin-top: 20px;
+    width: 260px;
+    border-radius: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="quiz">
+    <h2>💘 AI Compatibility Matcher™</h2>
+
+    <p>Preferred height?</p>
+    <select><option>Tall</option><option>Average</option><option>Short</option></select>
+
+    <p>Most attractive personality trait?</p>
+    <input type="text">
+
+    <p>Ideal lifestyle?</p>
+    <input type="text">
+
+    <p>Hair preference?</p>
+    <select><option>Dark</option><option>Light</option><option>Doesn't matter</option></select>
+
+    <br>
+    <button onclick="startScan()">Analyze Match</button>
+</div>
+
+<div class="container" id="scan" style="display:none;">
+    <h2>🔍 Running Deep Compatibility Scan...</h2>
+    <p id="status">Initializing neural attraction model...</p>
+</div>
+
+<script>
+function startScan() {
+    document.getElementById("quiz").style.display = "none";
+    document.getElementById("scan").style.display = "block";
+
+    const steps = [
+        "Initializing neural attraction model...",
+        "Analyzing emotional compatibility matrix...",
+        "Scanning over 2.4 million candidate profiles...",
+        "Cross-referencing psychological alignment...",
+        "Running facial symmetry preference prediction...",
+        "Finalizing top match..."
+    ];
+
+    let i = 0;
+
+    let interval = setInterval(() => {
+        document.getElementById("status").innerText = steps[i];
+        i++;
+
+        if (i >= steps.length) {
+            clearInterval(interval);
+
+            setTimeout(() => {
+                document.getElementById("scan").innerHTML = `
+                    <h2>💖 Match Found 💖</h2>
+                    <p>Based on advanced AI modeling, your ideal partner is:</p>
+                    <img src="me.jpg">
+                    <p>🔥 Compatibility Score: 99.97% 🔥</p>
+                `;
+            }, 1500);
+        }
+
+    }, 1400);
+}
+</script>
+
+</body>
+</html>
